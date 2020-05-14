@@ -1,0 +1,48 @@
+service: serverless-apollo-federation
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+  stage: dev
+  versionFunctions: false
+  deploymentBucket: tester-account-sls-deployments
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+functions:
+  graphql:
+    handler: index.graphql
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true
+      - http:
+          path: graphql
+          method: get
+          cors: true
+  posts:
+    handler: services.posts
+    events:
+      - http:
+          path: posts
+          method: post
+          cors: true
+      - http:
+          path: posts
+          method: get
+          cors: true
+  users:
+    handler: services.users
+    events:
+      - http:
+          path: users
+          method: post
+          cors: true
+      - http:
+          path: users
+          method: get
+          cors: true
