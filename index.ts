@@ -11,10 +11,10 @@ const createHandler = async () => {
   });
 
   const server = new ApolloServer({
+    playground: { endpoint: '/dev/graphql' },
     gateway,
     subscriptions: false,
   });
-
   return server.createHandler();
 };
 

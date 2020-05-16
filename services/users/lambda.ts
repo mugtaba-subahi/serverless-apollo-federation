@@ -1,17 +1,8 @@
-import { ApolloServer, gql } from 'apollo-server-lambda';
-import { APIGatewayProxyEvent, Context, Callback } from 'aws-lambda';
-import { buildFederatedSchema } from '@apollo/federation';
 import * as request from 'request-promise';
-
-const typeDefs = gql`
-  type User {
-    id: Int
-  }
-
-  type Query {
-    allUsers: [User]
-  }
-`;
+import typeDefs from './schema';
+import { ApolloServer } from 'apollo-server-lambda';
+import { buildFederatedSchema } from '@apollo/federation';
+import { APIGatewayProxyEvent, Context, Callback } from 'aws-lambda';
 
 const resolvers = {
   Query: {
@@ -20,10 +11,13 @@ const resolvers = {
 };
 
 const createHandler = async () => {
-  const server = new ApolloServer({ schema: buildFederatedSchema([{ typeDefs, resolvers }]) });
+  const server = new ApolloServer({
+    playground: { endpoint: '/dev/users' },
+    schema: buildFederatedSchema([{ typeDefs, resolvers }]),
+  });
   return server.createHandler();
 };
 
-export default (event: APIGatewayProxyEvent, context: Context, callback: Callback) => {
+export const graphql = (event: APIGatewayProxyEvent, context: Context, callback: Callback) => {
   createHandler().then(handler => handler(event, context, callback));
 };

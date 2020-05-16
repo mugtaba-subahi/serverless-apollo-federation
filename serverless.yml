@@ -10,7 +10,6 @@ provider:
 
 plugins:
   - serverless-offline
-  - serverless-plugin-typescript
 
 functions:
   graphql:
@@ -25,7 +24,7 @@ functions:
           method: get
           cors: true
   posts:
-    handler: services.posts
+    handler: services/posts/lambda.graphql
     events:
       - http:
           path: posts
@@ -36,7 +35,7 @@ functions:
           method: get
           cors: true
   users:
-    handler: services.users
+    handler: services/users/lambda.graphql
     events:
       - http:
           path: users
