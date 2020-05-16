@@ -6,6 +6,7 @@ export default gql`
   }
 
   type Query {
-    allUsers: [User]
+    # allUsers: [User]
+    allUsers: String
   }
 `;

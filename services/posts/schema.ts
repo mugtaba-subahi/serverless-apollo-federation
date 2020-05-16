@@ -6,6 +6,7 @@ export default gql`
   }
 
   type Query {
-    allPosts: [Post]
+    # allPosts: [Post]
+    allPosts: String
   }
 `;

@@ -5,8 +5,8 @@ import { ApolloGateway } from '@apollo/gateway';
 const createHandler = async () => {
   const gateway = new ApolloGateway({
     serviceList: [
-      { name: 'posts', url: 'http://localhost:3000/dev/posts' },
-      { name: 'users', url: 'http://localhost:3000/dev/users' },
+      { name: 'posts', url: 'https://vcis90cesa.execute-api.eu-west-1.amazonaws.com/dev/posts' },
+      { name: 'users', url: 'https://vcis90cesa.execute-api.eu-west-1.amazonaws.com/dev/users' },
     ],
   });
 

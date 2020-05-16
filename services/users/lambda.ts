@@ -6,7 +6,8 @@ import { APIGatewayProxyEvent, Context, Callback } from 'aws-lambda';
 
 const resolvers = {
   Query: {
-    allUsers: () => request.get({ uri: 'https://jsonplaceholder.typicode.com/users', json: true }),
+    // allUsers: () => request.get({ uri: 'https://jsonplaceholder.typicode.com/users', json: true }),
+    allUsers: () => 'user',
   },
 };
 

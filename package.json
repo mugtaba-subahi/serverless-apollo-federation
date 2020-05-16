@@ -6,7 +6,8 @@
   "scripts": {
     "watch": "tsc -w",
     "sls-offline": "sls offline --useChildProcesses",
-    "start": "npm-run-all -p watch sls-offline"
+    "start": "npm-run-all -p watch sls-offline",
+    "deploy": "tsc && sls deploy"
   },
   "dependencies": {
     "@apollo/federation": "^0.16.0",
