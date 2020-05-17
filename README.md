@@ -11,7 +11,10 @@ This is a simple repo making use of Apollo Federation to architect distributed G
 
 ## Apollo Federation Concerns
 
-1. graphql gateway calls X child graphql service when query from client only needs data from Z child graphql service
+1. graphql gateway calls X child graphql service when query from client only needs data from Z child graphql service.
+   This is bad because of lambda cold starts. It means that EVERY graphql service will need to NOT have any cold starts
+   for optimial perfomance.
 2. (probably answer to above) graphql gateway needs to call ALL child services to merge their schemas BEFORE letting
    it lets client make any queries at all. This is will be an issue when connecting a lot of child services.
    Especilly when only wanting to perform simple queries from 1 child service.
+   - This is actually probably not an issue since schemas from child services are all fetched in parallel
