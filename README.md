@@ -1,6 +1,6 @@
 # Serveless GraphQL using Typescript deployed to AWS Lambda
 
-This is a simple repo making use of Apollo Federation to architect distributed GraphQL microservices on Lambdas.
+This is a repo making use of Apollo Federation to architect distributed GraphQL microservices on Lambdas.
 
 ## Main dependencies
 
