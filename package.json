@@ -12,7 +12,7 @@
   "dependencies": {
     "@apollo/federation": "^0.16.0",
     "@apollo/gateway": "^0.16.0",
-    "apollo-server-lambda": "^2.13.1",
+    "apollo-server-lambda": "^2.14.2",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
   },
